@@ -11,6 +11,7 @@ import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+// Import some packages
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -51,6 +52,9 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+
+    // Handle request display over other apps
+    // or go to App setting -> Advanced -> Display over other apps -> enable
     int version = Build.VERSION.SDK_INT;
     if(version >= 29) {
         if(!Settings.canDrawOverlays(this)) {
